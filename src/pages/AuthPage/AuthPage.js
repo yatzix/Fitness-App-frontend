@@ -1,8 +1,8 @@
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
-// import { useState } from "react";
+import { useState } from "react";
 
-export default function HomePage({ setUser }) {
+export default function AuthPage({ setUser }) {
   return (
     <main>
       <h1>Home Page</h1>
