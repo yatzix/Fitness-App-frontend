@@ -1,8 +1,5 @@
-// import Timer from "../../components/Timer/Timer";
-
 import Category from "../../components/Category/Category"
-
-// import TodosList from "../../components/TodosList/TodosList";
+import ExerciseList from "../../components/ExerciseList/ExerciseList"
 
 export default function MainPage({ setUser }) {
   return (
@@ -11,6 +8,7 @@ export default function MainPage({ setUser }) {
     <aside>
       <Category />
     </aside>
+      <ExerciseList />
     </>
   )
  
