@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const WorkOutItems = () => {
   const [data, setData] = useState(null);
   const [muscle, setMuscle] = useState("");
+  const userId = "someUserId"; // Replace this with the actual user's ID
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,19 +38,20 @@ const WorkOutItems = () => {
   if (!data) {
     return <p>Loading...</p>;
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
-    fetch("/api/users/data", {
+
+    const workoutName = e.target[0].value;
+
+    fetch("/api/data/WorkOuts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      //   body: "Rickshaw Carry",
-      body: e.target[0].value,
+      body: JSON.stringify({ workout: workoutName, userId }),
     })
       .then((response) => {
-        // console.log(JSON.stringify.data);
         if (response.ok) {
           console.log("Data submitted to MongoDB");
         } else {
@@ -60,6 +62,7 @@ const WorkOutItems = () => {
         console.error("Error submitting data to MongoDB:", error);
       });
   };
+
   console.log(data);
 
   return (
@@ -110,5 +113,3 @@ const WorkOutItems = () => {
 };
 
 export default WorkOutItems;
-
-//  <button type="submit" onClick={handleSubmit(exercise) => onSubmit(exercise)}
