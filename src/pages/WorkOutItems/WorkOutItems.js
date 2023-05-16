@@ -7,7 +7,7 @@ const WorkOutItems = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const api_key = "rtQK91GjYoH8Yl5GyeS39Q==v1C9Taax71aUGhU9";
+        const api_key = process.env.REACT_APP_API_KEY;
         const api_url = `https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`;
 
         const response = await fetch(api_url, {
