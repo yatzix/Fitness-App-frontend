@@ -39,15 +39,17 @@ const WorkOutItems = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("/api/data", {
+    console.log(e.target[0].value);
+    fetch("/api/users/data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      //   body: "Rickshaw Carry",
+      body: e.target[0].value,
     })
       .then((response) => {
-        console.log(JSON.stringify.data);
+        // console.log(JSON.stringify.data);
         if (response.ok) {
           console.log("Data submitted to MongoDB");
         } else {
