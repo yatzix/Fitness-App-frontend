@@ -9,6 +9,7 @@ const WorkOutItems = ({ user }) => {
   const [workoutList, setWorkoutList] = useState([]);
 
   console.log("user present", user);
+  
   const fetchData = async () => {
     try {
       const api_key = process.env.REACT_APP_API_KEY;
@@ -34,45 +35,41 @@ const WorkOutItems = ({ user }) => {
     fetchData();
   }, []);
 
-  // const handleMuscleChange = (event) => {
-  //   setMuscle(event.target.value);
-  // };
-
   if (!data) {
     return <p>Loading...</p>;
   }
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e, exercise) => {
     e.preventDefault();
-    console.log({ body: JSON.stringify(e.target[0].value) });
-    fetch("/api/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        user: user._id,
-      },
-      //   body: "Rickshaw Carry",
+    const userWorkout = exercise.name;
 
-      body: JSON.stringify({
-        exercise: e.target[0].value,
-      }),
-    })
-      .then((response) => {
-        // console.log(JSON.stringify.data);
-        if (response.ok) {
-          console.log("Data submitted to MongoDB");
-        } else {
-          console.error("Error submitting data to MongoDB:", response.status);
-        }
-      })
-      .catch((error) => {
-        console.error("Error submitting data to MongoDB:", error);
+    try {
+      const response = await fetch("/api/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          user: user._id,
+        },
+        body: JSON.stringify({
+          name: exercise.name,
+          type: exercise.type,
+          muscle: exercise.muscle,
+          equipment: exercise.equipment,
+          difficulty: exercise.difficulty,
+          instructions: exercise.instructions,
+        }),
       });
 
-    const userWorkout = e.target[0].value;
-    setWorkout(userWorkout);
-    setWorkoutList([workout]);
+      if (response.ok) {
+        console.log("Data submitted to MongoDB");
+        setWorkoutList((prevWorkoutList) => [...prevWorkoutList, userWorkout]);
+      } else {
+        console.error("Error submitting data to MongoDB:", response.status);
+      }
+    } catch (error) {
+      console.error("Error submitting data to MongoDB:", error);
+    }
   };
-  console.log(data);
 
   return (
     <div>
@@ -85,11 +82,11 @@ const WorkOutItems = ({ user }) => {
         onChange={handleMuscleChange}
       /> */}
       <h1>Exercises:</h1>
-      <div class="workoutList">
+      <div className="workoutList">
         <ol>
           {data.map((exercise) => (
             <li key={exercise.id}>
-              <form autoComplete="off" onSubmit={handleSubmit}>
+              <form autoComplete="off" onSubmit={(e) => handleSubmit(e, exercise)}>
                 <input
                   type="text"
                   name="workouts"
@@ -118,14 +115,6 @@ const WorkOutItems = ({ user }) => {
             </li>
           ))}
         </ol>
-      </div>
-      <h1>Your workout list</h1>
-      <div>
-        <ul>
-          {workoutList.map((workout, index) => (
-            <li key={index}>{workout}</li>
-          ))}
-        </ul>
       </div>
     </div>
   );

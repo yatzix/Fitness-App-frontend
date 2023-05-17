@@ -7,7 +7,7 @@ export default function WorkOuts({ user }) {
   return (
     <>
       <h1>View your workout:</h1>
-      <div class="workout">
+      <div className="workout">
         <CategoryList />
 
         <WorkOutItems user={user} />
