@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 const WorkOutItems = ({ user }) => {
   const [data, setData] = useState(null);
   const [muscle, setMuscle] = useState("");
+  const [workout, setWorkout] = useState("");
+  const [workoutList, setWorkoutList] = useState([]);
+
   console.log("user present", user);
   useEffect(() => {
     const fetchData = async () => {
@@ -63,6 +66,10 @@ const WorkOutItems = ({ user }) => {
       .catch((error) => {
         console.error("Error submitting data to MongoDB:", error);
       });
+
+    const userWorkout = e.target[0].value;
+    setWorkout(userWorkout);
+    setWorkoutList([workout]);
   };
   console.log(data);
 
@@ -109,6 +116,15 @@ const WorkOutItems = ({ user }) => {
           </li>
         ))}
       </ol>
+
+      <h1>Your workout list</h1>
+      <div>
+        <ul>
+          {workoutList.map((workout, index) => (
+            <li key={index}>{workout}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
