@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+body {
+  /* grid-template-rows: repeat(2, 37vmin); */
+  background-color: #a5b8de;
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.workout {
+  display: flex;
+  flex-direction: row;
+}
