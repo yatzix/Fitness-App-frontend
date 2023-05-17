@@ -45,7 +45,22 @@ body {
   text-align: center;
 }
 
-.workout {
-  display: flex;
-  flex-direction: row;
+/* HOME PAGE */
+.scroll {
+  width: 100%;
+  height: 75vmin;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+#main-container {
+  display: grid;
+  grid-template-columns: repeat(3, 55vmin);
+  /* grid-template-rows: repeat(2, 37vmin); */
+}
+
+#search-bar > ul > li {
+  list-style: none;
 }
