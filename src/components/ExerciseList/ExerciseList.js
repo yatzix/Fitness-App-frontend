@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 export default function ExerciseList() {
-  return <h1>View My Exercises</h1>;
+  return <h1>Exercise List</h1>
 }
