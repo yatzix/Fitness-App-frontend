@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-const WorkOutItems = () => {
+const WorkOutItems = ({ user }) => {
   const [data, setData] = useState(null);
   const [muscle, setMuscle] = useState("");
-
+  console.log("user present", user);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const api_key = "PbrAGLyYmEF6NQNL0Gg45L3xZVCJtUBGTm6GFpFW";
+        const api_key = process.env.REACT_APP_API_KEY;
         const api_url =
           "https://api.api-ninjas.com/v1/exercises?muscle=" + muscle;
         const response = await fetch(api_url, {
@@ -39,14 +39,18 @@ const WorkOutItems = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
-    fetch("/api/users/data", {
+    console.log({ body: JSON.stringify(e.target[0].value) });
+    fetch("/api/data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        user: user._id,
       },
       //   body: "Rickshaw Carry",
-      body: e.target[0].value,
+
+      body: JSON.stringify({
+        exercise: e.target[0].value,
+      }),
     })
       .then((response) => {
         // console.log(JSON.stringify.data);
