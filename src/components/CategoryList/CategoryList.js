@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const CategoryList = () => {
   const [exercises, setExercises] = useState([]);
@@ -27,10 +27,12 @@ const CategoryList = () => {
   }, []);
 
   // Get a list of unique muscle names
-  const muscles = [...new Set(exercises.map(exercise => exercise.muscle))];
+  const muscles = [...new Set(exercises.map((exercise) => exercise.muscle))];
 
   // Filter the exercises based on the selected muscle
-  const filteredExercises = exercises.filter(exercise => exercise.muscle === selectedMuscle);
+  const filteredExercises = exercises.filter(
+    (exercise) => exercise.muscle === selectedMuscle
+  );
 
   return (
     <div>

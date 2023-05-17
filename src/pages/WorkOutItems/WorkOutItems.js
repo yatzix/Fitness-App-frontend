@@ -1,41 +1,42 @@
 import React, { useEffect, useState } from "react";
+import WorkoutList from "../../components/WorkoutList/WorkoutList";
 
 const WorkOutItems = ({ user }) => {
   const [data, setData] = useState(null);
+  const [fetchedData, setFetchedData] = useState("");
   const [muscle, setMuscle] = useState("");
   const [workout, setWorkout] = useState("");
   const [workoutList, setWorkoutList] = useState([]);
 
   console.log("user present", user);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const api_key = process.env.REACT_APP_API_KEY;
-        const api_url =
-          "https://api.api-ninjas.com/v1/exercises?muscle=" + muscle;
-        const response = await fetch(api_url, {
-          headers: {
-            "X-Api-Key": api_key,
-          },
-        });
+  const fetchData = async () => {
+    try {
+      const api_key = process.env.REACT_APP_API_KEY;
+      const api_url = "https://api.api-ninjas.com/v1/exercises?muscle=biceps";
+      const response = await fetch(api_url, {
+        headers: {
+          "X-Api-Key": api_key,
+        },
+      });
 
-        if (response.ok) {
-          const responseData = await response.json();
-          setData(responseData);
-        } else {
-          throw new Error("Request failed");
-        }
-      } catch (error) {
-        console.error(error);
+      if (response.ok) {
+        const responseData = await response.json();
+        setData(responseData);
+      } else {
+        throw new Error("Request failed");
       }
-    };
-
-    fetchData();
-  }, [muscle]);
-
-  const handleMuscleChange = (event) => {
-    setMuscle(event.target.value);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // const handleMuscleChange = (event) => {
+  //   setMuscle(event.target.value);
+  // };
 
   if (!data) {
     return <p>Loading...</p>;
@@ -76,47 +77,48 @@ const WorkOutItems = ({ user }) => {
   return (
     <div>
       <label htmlFor="muscle-input">Search by muscle:</label>
-      <input
+      <button onClick={() => setFetchedData({ fetchData })}>Biceps</button>
+      {/* <input
         id="muscle-input"
         type="text"
         value={muscle}
         onChange={handleMuscleChange}
-      />
+      /> */}
       <h1>Exercises:</h1>
+      <div class="workoutList">
+        <ol>
+          {data.map((exercise) => (
+            <li key={exercise.id}>
+              <form autoComplete="off" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="workouts"
+                  value={exercise.name}
+                  readOnly
+                />
 
-      <ol>
-        {data.map((exercise) => (
-          <li key={exercise.id}>
-            <form autoComplete="off" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="workouts"
-                value={exercise.name}
-                readOnly
-              />
-
-              <button type="submit">Add Exercise</button>
-            </form>
-            <h3>{exercise.name}</h3>
-            <p>
-              <strong>Type:</strong> {exercise.type}
-            </p>
-            <p>
-              <strong>Muscle:</strong> {exercise.muscle}
-            </p>
-            <p>
-              <strong>Equipment:</strong> {exercise.equipment}
-            </p>
-            <p>
-              <strong>Difficulty:</strong> {exercise.difficulty}
-            </p>
-            <p>
-              <strong>Instructions:</strong> {exercise.instructions}
-            </p>
-          </li>
-        ))}
-      </ol>
-
+                <button type="submit">Add Exercise</button>
+              </form>
+              <h3>{exercise.name}</h3>
+              <p>
+                <strong>Type:</strong> {exercise.type}
+              </p>
+              <p>
+                <strong>Muscle:</strong> {exercise.muscle}
+              </p>
+              <p>
+                <strong>Equipment:</strong> {exercise.equipment}
+              </p>
+              <p>
+                <strong>Difficulty:</strong> {exercise.difficulty}
+              </p>
+              <p>
+                <strong>Instructions:</strong> {exercise.instructions}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </div>
       <h1>Your workout list</h1>
       <div>
         <ul>
