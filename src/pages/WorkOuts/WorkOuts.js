@@ -15,7 +15,7 @@ export default function WorkOuts({ user }) {
       <h1>View your workout:</h1>
       <div className="workout">
         <WorkOutItems user={user} onAddExercise={handleAddExercise} />
-        <ExerciseList user={user} workouts={workouts} />
+        <ExerciseList workouts={workouts} />
       </div>
     </>
   );
