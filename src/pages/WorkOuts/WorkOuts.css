@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap");
+
+.main-pg {
+  background-color: rgba(136, 147, 234, 0.309);
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.display-txt {
+  font-family: "MuseoModerno", cursive;
+  color: white;
+}
