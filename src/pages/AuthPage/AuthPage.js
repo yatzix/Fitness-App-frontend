@@ -13,8 +13,10 @@ export default function AuthPage({ setUser }) {
       
       <h1 className="name">FitHub</h1>
       <img src={githubswole} alt="logo" className="logo" />
+       <h5 className="commit">Make Your Initial Commit</h5>
       {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />} 
       <h3>Are you a User?</h3>
+     
         <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</button>
     </div>
     </div>
