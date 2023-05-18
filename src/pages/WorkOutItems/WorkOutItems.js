@@ -41,26 +41,34 @@ const WorkOutItems = ({ user }) => {
   
   const handleSubmit = async (e, exercise) => {
     e.preventDefault();
-    console.log(e.target[0].value);
-    fetch("/api/users/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      //   body: "Rickshaw Carry",
-      body: e.target[0].value,
-    })
-      .then((response) => {
-        // console.log(JSON.stringify.data);
-        if (response.ok) {
-          console.log("Data submitted to MongoDB");
-        } else {
-          console.error("Error submitting data to MongoDB:", response.status);
-        }
-      })
-      .catch((error) => {
-        console.error("Error submitting data to MongoDB:", error);
+    const userWorkout = exercise.name;
+
+    try {
+      const response = await fetch("/api/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          user: user._id,
+        },
+        body: JSON.stringify({
+          name: exercise.name,
+          type: exercise.type,
+          muscle: exercise.muscle,
+          equipment: exercise.equipment,
+          difficulty: exercise.difficulty,
+          instructions: exercise.instructions,
+        }),
       });
+
+      if (response.ok) {
+        console.log("Data submitted to MongoDB");
+        setWorkoutList((prevWorkoutList) => [...prevWorkoutList, userWorkout]);
+      } else {
+        console.error("Error submitting data to MongoDB:", response.status);
+      }
+    } catch (error) {
+      console.error("Error submitting data to MongoDB:", error);
+    }
   };
 
   return (
