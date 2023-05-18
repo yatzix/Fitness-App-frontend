@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import WorkoutList from "../../components/WorkoutList/WorkoutList";
 
-const WorkOutItems = ({ user }) => {
+const WorkOutItems = ({ user, onAddExercise }) => {
   const [data, setData] = useState(null);
   const [fetchedData, setFetchedData] = useState("");
   const [muscle, setMuscle] = useState("");
@@ -62,7 +61,7 @@ const WorkOutItems = ({ user }) => {
 
       if (response.ok) {
         console.log("Data submitted to MongoDB");
-        setWorkoutList((prevWorkoutList) => [...prevWorkoutList, userWorkout]);
+        onAddExercise(exercise); // Add the exercise to the parent component's workouts state
       } else {
         console.error("Error submitting data to MongoDB:", response.status);
       }
@@ -93,7 +92,6 @@ const WorkOutItems = ({ user }) => {
                   value={exercise.name}
                   readOnly
                 />
-
                 <button type="submit">Add Exercise</button>
               </form>
               <h3>{exercise.name}</h3>
