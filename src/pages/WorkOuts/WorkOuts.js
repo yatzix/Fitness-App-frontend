@@ -1,15 +1,22 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import WorkOutItems from "../WorkOutItems/WorkOutItems";
-import CategoryList from "../../components/CategoryList/CategoryList";
-import styles from "./WorkOuts.css";
+import ExerciseList from "../../components/ExerciseList/ExerciseList";
 
 export default function WorkOuts({ user }) {
+  const [workouts, setWorkouts] = useState(user.workouts);
+
+  const handleAddExercise = (exercise) => {
+    setWorkouts((prevWorkouts) => [...prevWorkouts, exercise]);
+  };
+
   return (
     <>
-      <h1 className="display-txt">View your workout:</h1>
-
-      <WorkOutItems user={user} />
+      <h1>View your workout:</h1>
+      <div className="workout">
+        <WorkOutItems user={user} onAddExercise={handleAddExercise} />
+        <ExerciseList workouts={workouts} />
+      </div>
     </>
   );
 }

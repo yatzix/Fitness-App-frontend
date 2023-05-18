@@ -1,11 +1,6 @@
-
-export default function CatergoryList(){
-    return;
+export default function CatergoryList() {
+  return;
 }
-
-
-
-
 
 // import React, { useState, useEffect } from "react";
 
