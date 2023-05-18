@@ -1,4 +1,4 @@
-![Logo](https://i.imgur.com/qIMNtM4.png)
+![Logo](https://i.imgur.com/SQmj3tH.png)
 
 # <center>FitHub</center>
 ### <center>Get Ready to Commit</center>

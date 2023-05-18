@@ -6,17 +6,18 @@ import AuthPage from "../AuthPage/AuthPage";
 import NavBar from "../../components/NavBar/NavBar";
 import MainPage from "../MainPage/MainPage";
 import WorkOuts from "../WorkOuts/WorkOuts";
+import ExerciseList from "../../components/ExerciseList/ExerciseList";
 
 function App() {
   const [user, setUser] = useState(getUser());
+
   return (
     <main className="App">
       {user ? (
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/WorkOuts" element={<WorkOuts user={user} />} />
+            <Route path="/" element={<WorkOuts user={user} />} />
           </Routes>
         </>
       ) : (
@@ -28,3 +29,7 @@ function App() {
 
 export default App;
 //useparams
+// HOME PAGE CODE:
+{
+  /* <Route path="/" element={<MainPage user={user} />} /> */
+}
