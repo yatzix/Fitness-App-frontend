@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap");
+
+nav {
+  height: 30px;
+  width: 100%;
+  margin: 20px;
+}
+
+.display-txt {
+  font-family: "MuseoModerno", cursive;
+}
+
+.link {
+  color: white;
+}

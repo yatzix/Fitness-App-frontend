@@ -80,7 +80,9 @@ const WorkOutItems = ({ user }) => {
     <div>
       <div id="main-container">
         <div id="search-bar">
-          <label htmlFor="muscle-input">Search by muscle:</label>
+          <label htmlFor="muscle-input" className="display-txt">
+            Search by muscle:
+          </label>
 
           <input
             id="muscle-input"
@@ -88,7 +90,7 @@ const WorkOutItems = ({ user }) => {
             value={muscle}
             onChange={handleMuscleChange}
           />
-          <h4>Muscle groups:</h4>
+          <h4 className="display-txt">Muscle groups:</h4>
           <ul>
             <li>abdominals</li>
             <li>abductors</li>
@@ -110,7 +112,7 @@ const WorkOutItems = ({ user }) => {
         </div>
 
         <div className="scroll">
-          <h1>Exercises:</h1>
+          <h1 className="display-txt">Exercises:</h1>
           <ol>
             {data.map((exercise) => (
               <li key={exercise.id}>
@@ -145,7 +147,7 @@ const WorkOutItems = ({ user }) => {
           </ol>
         </div>
         <div>
-          <h1>Your workout list</h1>
+          <h1 className="display-txt">Your workout list</h1>
           <ul>
             {workoutList.map((workout, index) => (
               <li key={index}>{workout}</li>

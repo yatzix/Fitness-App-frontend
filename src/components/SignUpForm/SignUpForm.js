@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import styles from './SignUpForm.css'
 
 export default class SignUpForm extends Component {
   state = {
@@ -37,7 +38,7 @@ export default class SignUpForm extends Component {
       return (
         <div>
           <div className='form-container'>
-            <form autoComplete='off' onSubmit={this.handleSubmit}>
+            <form autoComplete='off' onSubmit={this.handleSubmit} className='sign-up-form'>
               <label>Name</label>
               <input
                 type='text' 
