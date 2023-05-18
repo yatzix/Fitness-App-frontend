@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import WorkOutItems from "../WorkOutItems/WorkOutItems";
-import ExerciseList from "../../components/ExerciseList/ExerciseList";
+import styles from "./WorkOuts.css";
+import WorkOutItems from "../../components/WorkOutItems/WorkOutItems";
 
 export default function WorkOuts({ user }) {
   const [workouts, setWorkouts] = useState(user.workouts);

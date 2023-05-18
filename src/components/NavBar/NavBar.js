@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
-import styles from "./NavBar.css";
 import githubswole from "../../images/githubswole.png";
+import styles from "./NavBar.css";
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -12,9 +12,9 @@ export default function NavBar({ user, setUser }) {
   return (
     <div className="nav">
       <nav className="display-txt">
-        <Link to="/" className="link">
+        {/* <Link to="/" className="link">
           Home
-        </Link>
+        </Link> */}
         &nbsp; &nbsp; &nbsp; &nbsp;
         <Link to="/WorkOuts" className="link">
           Create Workout

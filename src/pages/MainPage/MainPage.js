@@ -18,7 +18,7 @@ export default function MainPage({ user, setUser }) {
       <Link class="link" to="/WorkOuts">
         Start your journey here
       </Link>
-      <ExerciseList workouts={workouts} onAddExercise={handleAddExercise} />
+      {/* <ExerciseList workouts={workouts} onAddExercise={handleAddExercise} /> */}
     </>
   );
 }

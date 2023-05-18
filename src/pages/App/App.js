@@ -17,8 +17,7 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<MainPage user={user} />} />
-            <Route path="/WorkOuts" element={<WorkOuts user={user} />} />
+            <Route path="/" element={<WorkOuts user={user} />} />
           </Routes>
         </>
       ) : (
@@ -30,3 +29,7 @@ function App() {
 
 export default App;
 //useparams
+// HOME PAGE CODE:
+{
+  /* <Route path="/" element={<MainPage user={user} />} /> */
+}

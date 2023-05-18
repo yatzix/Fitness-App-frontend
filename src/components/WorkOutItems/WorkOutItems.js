@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import ExerciseList from "../../components/ExerciseList/ExerciseList";
+import ExerciseList from "../ExerciseList/ExerciseList";
 
 const WorkOutItems = ({ user, onAddExercise, workouts }) => {
   const [data, setData] = useState(null);
-  const [fetchedData, setFetchedData] = useState("");
+
   const [muscle, setMuscle] = useState("");
-  const [workout, setWorkout] = useState();
-  const [workoutList, setWorkoutList] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
