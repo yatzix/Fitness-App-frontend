@@ -1,0 +1,14 @@
+.current-workout{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    height: 80vmin;
+    width: 40vmin;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 20px;
+    font-family: 'Staatliches', cursive;
+    z-index: 2;
+    filter: none;
+    margin-left: 80px;
+    }

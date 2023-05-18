@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExerciseList from "../ExerciseList/ExerciseList";
+import styles from './WorkOutItems.css'
 
 const WorkOutItems = ({ user, onAddExercise, workouts }) => {
   const [data, setData] = useState(null);
@@ -111,37 +112,43 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
           <ol>
             {data.map((exercise) => (
               <li key={exercise.id}>
-                <form
+              <div className="exercise-box">
+                <h3 className="exercise-name">{exercise.name}</h3>
+                <p className="type">
+                  <strong>Type:</strong> {exercise.type}
+                </p>
+                <p className="muscle">
+                  <strong>Muscle:</strong> {exercise.muscle}
+                </p>
+                <p className="equipment">
+                  <strong>Equipment:</strong> {exercise.equipment}
+                </p>
+                <p className="difficulty">
+                  <strong>Difficulty:</strong> {exercise.difficulty}
+                </p>
+                <p className="instructions">
+                  <strong>Instructions:</strong> {exercise.instructions}
+                </p> 
+                 <form
+                 className="input-container"
                   autoComplete="off"
                   onSubmit={(e) => handleSubmit(e, exercise)}
                 >
                   <input
-                    type="text"
+                    type="submit"
                     name="workouts"
-                    value={exercise.name}
+                    value="Fit Add"
                     readOnly
                   />
-                  <button type="submit">Add Exercise</button>
-                </form>
-                <h3>{exercise.name}</h3>
-                <p>
-                  <strong>Type:</strong> {exercise.type}
-                </p>
-                <p>
-                  <strong>Muscle:</strong> {exercise.muscle}
-                </p>
-                <p>
-                  <strong>Equipment:</strong> {exercise.equipment}
-                </p>
-                <p>
-                  <strong>Difficulty:</strong> {exercise.difficulty}
-                </p>
-                <p>
-                  <strong>Instructions:</strong> {exercise.instructions}
-                </p>
+                  
+                </form> 
+                </div>
+                <br></br>
               </li>
+             
             ))}
           </ol>
+          
         </div>
         <div>
           <ExerciseList workouts={workouts} />
