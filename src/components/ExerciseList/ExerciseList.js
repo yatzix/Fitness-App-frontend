@@ -13,21 +13,33 @@ export default function ExerciseList({ workouts }) {
 
   return (
     <>
-      <h1>Exercise List</h1>
+      <h1 className="display-txt">Your Current Workout:</h1>
       <ul>
         {workouts.map((workout, index) => (
           <li key={index}>
-            <h3>{workout.name}</h3>
             <button onClick={() => toggleDetails(index)}>
-              {showDetails[index] ? "Hide Details" : "Show Details"}
+              {showDetails[index] ? "Hide Details" : workout.name}
             </button>
             {showDetails[index] && (
               <div style={{ marginLeft: "20px" }}>
-                <h3>{workout.type}</h3>
-                <h3>{workout.muscle}</h3>
-                <h3>{workout.equipment}</h3>
-                <h3>{workout.difficulty}</h3>
-                <h3>{workout.instructions}</h3>
+                <h3>{workout.name}</h3>
+                <p>
+                  <strong>Type:</strong> {workout.type}
+                </p>
+                <p>
+                  <strong>Workout:</strong> {workout.muscle}
+                </p>
+                <p>
+                  <strong>Equipment:</strong>
+                  {workout.equipment}
+                </p>
+                <p>
+                  <strong>Difficulty</strong> {workout.difficulty}
+                </p>
+                <p>
+                  <strong>Instructions</strong>
+                  {workout.instructions}
+                </p>
               </div>
             )}
           </li>

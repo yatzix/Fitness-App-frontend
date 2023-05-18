@@ -10,14 +10,14 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <div class="nav">
+    <div className="nav">
       <nav className="display-txt">
         <Link to="/" className="link">
           Home
         </Link>
         &nbsp; &nbsp; &nbsp; &nbsp;
         <Link to="/WorkOuts" className="link">
-          Workouts
+          Create Workout
         </Link>
         &nbsp; &nbsp; &nbsp; &nbsp;
         {user && <span> Welcome, {user.name}!</span>}

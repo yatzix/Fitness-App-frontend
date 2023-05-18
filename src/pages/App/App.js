@@ -6,6 +6,7 @@ import AuthPage from "../AuthPage/AuthPage";
 import NavBar from "../../components/NavBar/NavBar";
 import MainPage from "../MainPage/MainPage";
 import WorkOuts from "../WorkOuts/WorkOuts";
+import ExerciseList from "../../components/ExerciseList/ExerciseList";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -16,7 +17,7 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<MainPage user={user} />} />
             <Route path="/WorkOuts" element={<WorkOuts user={user} />} />
           </Routes>
         </>

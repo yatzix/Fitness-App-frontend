@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
+import ExerciseList from "../../components/ExerciseList/ExerciseList";
 
-const WorkOutItems = ({ user, onAddExercise }) => {
+const WorkOutItems = ({ user, onAddExercise, workouts }) => {
   const [data, setData] = useState(null);
+  const [fetchedData, setFetchedData] = useState("");
+  const [muscle, setMuscle] = useState("");
+  const [workout, setWorkout] = useState();
+  const [workoutList, setWorkoutList] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const api_key = process.env.REACT_APP_API_KEY;
-        const api_url = "https://api.api-ninjas.com/v1/exercises?muscle=biceps";
+        const api_url =
+          "https://api.api-ninjas.com/v1/exercises?muscle=" + muscle;
         const response = await fetch(api_url, {
           headers: {
             "X-Api-Key": api_key,
@@ -26,7 +32,11 @@ const WorkOutItems = ({ user, onAddExercise }) => {
     };
 
     fetchData();
-  }, []);
+  }, [muscle]);
+
+  const handleMuscleChange = (event) => {
+    setMuscle(event.target.value);
+  };
 
   const handleSubmit = async (e, exercise) => {
     e.preventDefault();
@@ -65,42 +75,79 @@ const WorkOutItems = ({ user, onAddExercise }) => {
 
   return (
     <div>
-      <h1>Exercises:</h1>
-      <div className="workoutList">
-        <ol>
-          {data.map((exercise) => (
-            <li key={exercise.id}>
-              <form
-                autoComplete="off"
-                onSubmit={(e) => handleSubmit(e, exercise)}
-              >
-                <input
-                  type="text"
-                  name="workouts"
-                  value={exercise.name}
-                  readOnly
-                />
-                <button type="submit">Add Exercise</button>
-              </form>
-              <h3>{exercise.name}</h3>
-              <p>
-                <strong>Type:</strong> {exercise.type}
-              </p>
-              <p>
-                <strong>Muscle:</strong> {exercise.muscle}
-              </p>
-              <p>
-                <strong>Equipment:</strong> {exercise.equipment}
-              </p>
-              <p>
-                <strong>Difficulty:</strong> {exercise.difficulty}
-              </p>
-              <p>
-                <strong>Instructions:</strong> {exercise.instructions}
-              </p>
-            </li>
-          ))}
-        </ol>
+      <div id="main-container">
+        <div id="search-bar">
+          <label htmlFor="muscle-input" className="display-txt">
+            Search by muscle:
+          </label>
+
+          <input
+            id="muscle-input"
+            type="text"
+            value={muscle}
+            onChange={handleMuscleChange}
+          />
+          <h4 className="display-txt">Muscle groups:</h4>
+          <ul>
+            <li>abdominals</li>
+            <li>abductors</li>
+            <li>adductors</li>
+            <li>biceps</li>
+            <li>calves</li>
+            <li>chest</li>
+            <li>forearms</li>
+            <li>glutes</li>
+            <li>hamstrings</li>
+            <li>lats</li>
+            <li>lower_back</li>
+            <li>middle_back</li>
+            <li>neck</li>
+            <li>quadriceps</li>
+            <li>traps</li>
+            <li>triceps</li>
+          </ul>
+        </div>
+
+        <div className="scroll">
+          <h1 className="display-txt">Exercises:</h1>
+          <ol>
+            {data.map((exercise) => (
+              <li key={exercise.id}>
+                <form
+                  autoComplete="off"
+                  onSubmit={(e) => handleSubmit(e, exercise)}
+                >
+                  <input
+                    type="text"
+                    name="workouts"
+                    value={exercise.name}
+                    readOnly
+                  />
+                  <button type="submit">Add Exercise</button>
+                </form>
+                <h3>{exercise.name}</h3>
+                <p>
+                  <strong>Type:</strong> {exercise.type}
+                </p>
+                <p>
+                  <strong>Muscle:</strong> {exercise.muscle}
+                </p>
+                <p>
+                  <strong>Equipment:</strong> {exercise.equipment}
+                </p>
+                <p>
+                  <strong>Difficulty:</strong> {exercise.difficulty}
+                </p>
+                <p>
+                  <strong>Instructions:</strong> {exercise.instructions}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div>
+          <ExerciseList workouts={workouts} />
+        </div>
       </div>
     </div>
   );

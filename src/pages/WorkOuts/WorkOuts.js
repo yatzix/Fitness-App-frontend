@@ -12,10 +12,13 @@ export default function WorkOuts({ user }) {
 
   return (
     <>
-      <h1>View your workout:</h1>
+      <h1 className="display-txt">The time is NOW </h1>
       <div className="workout">
-        <WorkOutItems user={user} onAddExercise={handleAddExercise} />
-        <ExerciseList workouts={workouts} />
+        <WorkOutItems
+          user={user}
+          onAddExercise={handleAddExercise}
+          workouts={workouts}
+        />
       </div>
     </>
   );
