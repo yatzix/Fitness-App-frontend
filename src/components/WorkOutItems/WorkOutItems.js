@@ -111,18 +111,6 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
           <ol>
             {data.map((exercise) => (
               <li key={exercise.id}>
-                <form
-                  autoComplete="off"
-                  onSubmit={(e) => handleSubmit(e, exercise)}
-                >
-                  <input
-                    type="text"
-                    name="workouts"
-                    value={exercise.name}
-                    readOnly
-                  />
-                  <button type="submit">Add Exercise</button>
-                </form>
                 <h3>{exercise.name}</h3>
                 <p>
                   <strong>Type:</strong> {exercise.type}
@@ -139,6 +127,17 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
                 <p>
                   <strong>Instructions:</strong> {exercise.instructions}
                 </p>
+                <form
+                  autoComplete="off"
+                  onSubmit={(e) => handleSubmit(e, exercise)}
+                >
+                  <input
+                    type="submit"
+                    name="workouts"
+                    value="Add Exercise"
+                    readOnly
+                  />
+                </form>
               </li>
             ))}
           </ol>
