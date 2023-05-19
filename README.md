@@ -7,7 +7,7 @@ Fithub is made for the the individuals that are ready to put in the WORK. Our Ap
 
 ### Deployed App
 
-[FitHub-Your Journey Starts here](https://btdt-achievements.herokuapp.com/)
+[FitHub-Your Journey Starts here]()
 
 ## Technologies Used
 
@@ -35,7 +35,7 @@ Hide/Show Details
 
 ## Getting Started
 
-The deployed app link is [here](https://btdt-achievements.herokuapp.com/), Sign up and make a user and Log In. Enter the name of your muscle group and press submit. It will load your exercises. Click the name and "Add Exercise" button and it will be added to your current worout list. If you want to see the details of each exercise click on the "Show More" want to see less? Click on "Hide Details" 
+The deployed app link is [here](), Sign up and make a user and Log In. Enter the name of your muscle group and press submit. It will load your exercises. Click the name and "Add Exercise" button and it will be added to your current worout list. If you want to see the details of each exercise click on the "Show More" want to see less? Click on "Hide Details" 
 
 ## IceBox 🥶
 
