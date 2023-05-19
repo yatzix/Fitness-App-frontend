@@ -5,6 +5,10 @@ export async function signUp(userData) {
   return sendRequest(BASE_URL, "POST", userData);
 }
 
+// export async function getLogin(userData) {
+// //   return sendRequest(BASE_URL, "GET", userData);
+// }
+
 export async function login(credentials) {
   return sendRequest(`${BASE_URL}/login`, "POST", credentials);
 }
