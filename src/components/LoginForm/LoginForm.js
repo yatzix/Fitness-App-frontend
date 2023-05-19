@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as usersService from "../../utilities/users-service";
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ user, setUser }) {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -24,6 +24,30 @@ export default function LoginForm({ setUser }) {
       setError("Log In Failed - Try Again");
     }
   }
+
+  useEffect(() => {
+    const foundUser = async () => {
+      try {
+        const token = await usersService.getToken();
+        const response = await fetch(API_URL, {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        const data = await response.json();
+        setfoundUser(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    foundUser();
+  }, [user]);
+
+  const [foundUser, setfoundUser] = useState(null);
+
+  const API_URL = "https://sleepy-meadow-61708.herokuapp.com/api/users/login";
 
   return (
     <div>

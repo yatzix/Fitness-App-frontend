@@ -4,7 +4,7 @@ import githubswole from "../../images/githubswole.png";
 import styles from "./AuthPage.css";
 import { useState } from "react";
 
-export default function AuthPage({ setUser }) {
+export default function AuthPage({ setUser, user }) {
   const [showLogin, setShowLogin] = useState(true);
   return (
     <div>
@@ -14,7 +14,7 @@ export default function AuthPage({ setUser }) {
         <img src={githubswole} alt="logo" className="logo" />
         <h5 className="commit">Make Your Initial Commit</h5>
         {showLogin ? (
-          <LoginForm setUser={setUser} />
+          <LoginForm setUser={setUser} user={user} />
         ) : (
           <SignUpForm setUser={setUser} />
         )}
