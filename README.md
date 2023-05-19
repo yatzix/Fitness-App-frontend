@@ -1,4 +1,4 @@
-![Logo](https://i.imgur.com/SQmj3tH.png)
+<center><img src="https://i.imgur.com/SQmj3tH.png"  width=30%/></center>
 
 # <center>FitHub</center>
 ### <center>Get Ready to Commit</center>
@@ -11,24 +11,25 @@ Fithub is made for the the individuals that are ready to put in the WORK. Our Ap
 
 ## Technologies Used
 
-Uses React, JSX, CSS, Javascript and the Ninja Exercises API [here](https://api-ninjas.com/api/exercises).
+Uses  MongoDB, Express, React, Node (MERN), JSX, CSS, Javascript,and the Ninja Exercises API [here](https://api-ninjas.com/api/exercises).
 ## Site Components
 
 Auth Page 
 
-![Main]()
-
-Search Functionality
-
-![search]()
-
-w/Search Results
-
-![results]()
+![Main](https://i.imgur.com/MEL4IcC.png)
 
 Current Workout List
 
-![list]()
+![list](https://i.imgur.com/8mCkv0V.png)
+
+w/Search Results
+
+![results](https://i.imgur.com/1UY900r.png)
+
+Hide/Show Details
+![results](https://i.imgur.com/gT3yaMb.png)
+
+
 
 
 
@@ -42,6 +43,7 @@ Features that we want to implement in the future
 
 🔧 AAU: I want to be able to have a clickable list of categories for each muscle group that displays a list of exercies.
 🔧 AAU: I want to be able to save my current Workout list and be able to view it later.
+🔧 AAU: I want to be able to delete and edit workouts
 
 ##### FitHub Created by:
 Sung Kim, Gabrielle Dang, Yatzil Gutierrez-Nova
