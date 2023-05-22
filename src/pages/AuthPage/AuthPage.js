@@ -1,7 +1,7 @@
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import githubswole from "../../images/githubswole.png";
-import styles from "./AuthPage.css";
+import "./AuthPage.css";
 import { useState } from "react";
 
 export default function AuthPage({ setUser }) {
@@ -12,13 +12,14 @@ export default function AuthPage({ setUser }) {
       <div className="bg-text">
         <h1 className="name">FitHub</h1>
         <img src={githubswole} alt="logo" className="logo" />
+        <h5 className="commit">Make Your Initial Commit</h5>
         {showLogin ? (
           <LoginForm setUser={setUser} />
         ) : (
           <SignUpForm setUser={setUser} />
         )}
         <h3>Are you a User?</h3>
-        <button class="auth-btn" onClick={() => setShowLogin(!showLogin)}>
+        <button className="auth-btn" onClick={() => setShowLogin(!showLogin)}>
           {showLogin ? "SIGN UP" : "LOG IN"}
         </button>
       </div>

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
-import styles from "./SignUpForm.css";
+import  "./SignUpForm.css";
 
 export default class SignUpForm extends Component {
   state = {
@@ -74,7 +74,7 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <button class="auth-btn" type="submit" disabled={disable}>
+            <button className="auth-btn" type="submit" disabled={disable}>
               SIGN UP
             </button>
           </form>

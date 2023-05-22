@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
 import githubswole from "../../images/githubswole.png";
-import styles from "./NavBar.css";
+import "./NavBar.css";
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
@@ -12,14 +12,6 @@ export default function NavBar({ user, setUser }) {
   return (
     <div className="nav">
       <nav className="display-txt">
-        {/* <Link to="/" className="link">
-          Home
-        </Link> */}
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <Link to="/WorkOuts" className="link">
-          Create Workout
-        </Link>
-        &nbsp; &nbsp; &nbsp; &nbsp;
         {user && <span> Welcome, {user.name}!</span>}
         &nbsp; &nbsp;&nbsp; &nbsp;
         <Link to="" onClick={handleLogOut} className="link">

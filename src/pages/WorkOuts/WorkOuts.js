@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./WorkOuts.css";
+import "./WorkOuts.css";
 import WorkOutItems from "../../components/WorkOutItems/WorkOutItems";
 
 export default function WorkOuts({ user }) {
@@ -11,13 +11,18 @@ export default function WorkOuts({ user }) {
 
   return (
     <>
-      <h1 className="display-txt">The time is NOW </h1>
+      <h1 className="display-txt">Make Your Initial Commit </h1>
+      <p className="app-info">Welcome to your very own fitness hub!</p>
+      <p className="app-info">Create a personalized workout plan that best fits your needs.</p>
       <div className="workout">
         <WorkOutItems
           user={user}
           onAddExercise={handleAddExercise}
           workouts={workouts}
         />
+        <footer>
+          
+        </footer>
       </div>
     </>
   );

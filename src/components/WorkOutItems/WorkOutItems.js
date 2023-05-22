@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExerciseList from "../ExerciseList/ExerciseList";
+import './WorkOutItems.css'
 
 const WorkOutItems = ({ user, onAddExercise, workouts }) => {
   const [data, setData] = useState(null);
@@ -113,34 +114,42 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
               <li key={exercise.id}>
                 <h3>{exercise.name}</h3>
                 <p>
+              <div className="exercise-box">
+                <h3 className="exercise-name">{exercise.name}</h3>
+                <p className="type">
                   <strong>Type:</strong> {exercise.type}
                 </p>
-                <p>
+                <p className="muscle">
                   <strong>Muscle:</strong> {exercise.muscle}
                 </p>
-                <p>
+                <p className="equipment">
                   <strong>Equipment:</strong> {exercise.equipment}
                 </p>
-                <p>
+                <p className="difficulty">
                   <strong>Difficulty:</strong> {exercise.difficulty}
                 </p>
-                <p>
+                <p className="instructions">
                   <strong>Instructions:</strong> {exercise.instructions}
-                </p>
-                <form
+
+                </p> 
+                 <form
+                 className="input-container"
                   autoComplete="off"
                   onSubmit={(e) => handleSubmit(e, exercise)}
                 >
                   <input
                     type="submit"
                     name="workouts"
-                    value="Add Exercise"
+                    value="Fit Add"
                     readOnly
-                  />
-                </form>
-              </li>
+                  />           
+                </form> 
+                </div>
+                <br></br>
+              </li>          
             ))}
           </ol>
+          
         </div>
         <div>
           <ExerciseList workouts={workouts} />
