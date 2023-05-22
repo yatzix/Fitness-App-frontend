@@ -1,5 +1,5 @@
 import sendRequest from "./send-request";
-const BASE_URL = "/api/users";
+const BASE_URL = "https://sleepy-meadow-61708.herokuapp.com/api/users";
 
 export async function signUp(userData) {
   // passes in formData and sends a post req to the servers
