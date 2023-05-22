@@ -112,6 +112,8 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
           <ol>
             {data.map((exercise) => (
               <li key={exercise.id}>
+                <h3>{exercise.name}</h3>
+                <p>
               <div className="exercise-box">
                 <h3 className="exercise-name">{exercise.name}</h3>
                 <p className="type">
@@ -128,6 +130,7 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
                 </p>
                 <p className="instructions">
                   <strong>Instructions:</strong> {exercise.instructions}
+
                 </p> 
                  <form
                  className="input-container"
@@ -139,13 +142,11 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
                     name="workouts"
                     value="Fit Add"
                     readOnly
-                  />
-                  
+                  />           
                 </form> 
                 </div>
                 <br></br>
-              </li>
-             
+              </li>          
             ))}
           </ol>
           
