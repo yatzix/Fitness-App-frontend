@@ -33,6 +33,7 @@ export default function LoginForm({ user, setUser }) {
           method: "GET",
           headers: {
             Authorization: "Bearer " + token,
+            user: user.id,
           },
         });
         const data = await response.json();
@@ -43,7 +44,7 @@ export default function LoginForm({ user, setUser }) {
     };
 
     foundUser();
-  }, [user]);
+  }, []);
 
   const [foundUser, setfoundUser] = useState(null);
 
