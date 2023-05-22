@@ -12,7 +12,7 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
       try {
         const api_key = process.env.REACT_APP_API_KEY;
         const api_url =
-          "https://api.api-ninjas.com/v1/exercises?muscle=" + muscle;
+        `https://sleepy-meadow-61708.herokuapp.com/api/exercises?muscle=${muscle}`;
         const response = await fetch(api_url, {
           headers: {
             "X-Api-Key": api_key,
