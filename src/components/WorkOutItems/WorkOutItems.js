@@ -41,7 +41,7 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`https://sleepy-meadow-61708.herokuapp.com/api/exercises?muscle=${muscle}`, {
+      const response = await fetch("https://sleepy-meadow-61708.herokuapp.com/api/data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
