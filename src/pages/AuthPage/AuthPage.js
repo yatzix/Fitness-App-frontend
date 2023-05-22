@@ -1,7 +1,7 @@
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import githubswole from "../../images/githubswole.png";
-import styles from "./AuthPage.css";
+import "./AuthPage.css";
 import { useState } from "react";
 
 export default function AuthPage({ setUser }) {

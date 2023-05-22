@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from './ExerciseList.css'
+import './ExerciseList.css'
 
 export default function ExerciseList({ workouts }) {
   const [showDetails, setShowDetails] = useState([]);

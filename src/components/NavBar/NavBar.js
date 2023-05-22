@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
 import githubswole from "../../images/githubswole.png";
-import styles from "./NavBar.css";
+import "./NavBar.css";
 
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {

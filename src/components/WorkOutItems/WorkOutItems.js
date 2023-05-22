@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExerciseList from "../ExerciseList/ExerciseList";
-import styles from './WorkOutItems.css'
+import './WorkOutItems.css'
 
 const WorkOutItems = ({ user, onAddExercise, workouts }) => {
   const [data, setData] = useState(null);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./WorkOuts.css";
+import "./WorkOuts.css";
 import WorkOutItems from "../../components/WorkOutItems/WorkOutItems";
 
 export default function WorkOuts({ user }) {
