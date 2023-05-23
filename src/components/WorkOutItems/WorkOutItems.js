@@ -4,9 +4,7 @@ import styles from "./WorkOutItems.css";
 
 const WorkOutItems = ({ user, onAddExercise, workouts }) => {
   const [data, setData] = useState(null);
-
-  const [muscle, setMuscle] = useState("");
-
+  const [muscle, setMuscle] = useState("biceps");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,17 +22,13 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
         console.error(error);
       }
     };
-
     fetchData();
   }, [muscle]);
-
   const handleMuscleChange = (event) => {
     setMuscle(event.target.value);
   };
-
   const handleSubmit = async (e, exercise) => {
     e.preventDefault();
-
     try {
       const response = await fetch(
         "https://sleepy-meadow-61708.herokuapp.com/api/data",
@@ -65,11 +59,9 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
       console.error("Error submitting data to MongoDB:", error);
     }
   };
-
   if (!data) {
     return <p>Loading...</p>;
   }
-
   return (
     <div>
       <div id="main-container">
@@ -77,7 +69,6 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
           <label htmlFor="muscle-input" className="display-txt">
             Search by muscle:
           </label>
-
           <input
             id="muscle-input"
             type="text"
@@ -104,7 +95,6 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
             <li>triceps</li>
           </ul>
         </div>
-
         <div className="scroll">
           <h1 className="display-txt">Exercises:</h1>
           <ol>
@@ -152,5 +142,4 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
     </div>
   );
 };
-
 export default WorkOutItems;
