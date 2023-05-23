@@ -10,9 +10,8 @@ const WorkOutItems = ({ user, onAddExercise, workouts }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const api_key = process.env.REACT_APP_API_KEY;
         const api_url =
-          "https://sleepy-meadow-61708.herokuapp.com/api/users/data";
+          "https://sleepy-meadow-61708.herokuapp.com/api/users/" + muscle;
         const response = await fetch(api_url);
 
         if (response.ok) {
