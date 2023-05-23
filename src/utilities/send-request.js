@@ -14,10 +14,7 @@ export default async function sendRequest(url, method = "GET", payload = null) {
     options.headers ||= {};
     options.headers.Authorization = `Bearer ${token}`;
   }
-
-  // Replace the existing URL with the Heroku URL
-  const herokuURL = "https://sleepy-meadow-61708.herokuapp.com/";
-  const res = await fetch(herokuURL, options);
+  const res = await fetch(url, options);
   // res.ok will be false if the status code set to 4xx in the controller action
   if (res.ok) return res.json();
   throw new Error("Bad Request");

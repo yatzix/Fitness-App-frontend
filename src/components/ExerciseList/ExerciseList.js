@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from './ExerciseList.css'
+import "./ExerciseList.css";
 
 export default function ExerciseList({ workouts }) {
   const [showDetails, setShowDetails] = useState([]);
@@ -11,22 +11,21 @@ export default function ExerciseList({ workouts }) {
       return updatedDetails;
     });
   };
-
+  console.log(workouts);
   return (
-    <div className="current-workout scroll" >
+    <div className="current-workout scroll">
       <h1 className="display-txt">Your Current Workout:</h1>
       <ul>
         {workouts.map((workout, index) => (
           <li key={index}>
             <button onClick={() => toggleDetails(index)}>
               {showDetails[index] ? "Hide Details" : workout.name}
-              
             </button>
-            
+
             {showDetails[index] && (
               <div style={{ marginLeft: "20px" }}>
                 <h3>{workout.name}</h3>
-                
+
                 <p>
                   <strong>Type:</strong> {workout.type}
                 </p>
@@ -44,9 +43,7 @@ export default function ExerciseList({ workouts }) {
                   <strong>Instructions</strong>
                   {workout.instructions}
                 </p>
-                
               </div>
-              
             )}
           </li>
         ))}

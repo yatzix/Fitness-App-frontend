@@ -5,7 +5,8 @@ export function logOut() {
 }
 
 export async function signUp(userData) {
-  const token = await userAPI.signUp(userData);
+  // passes in form fata from SignUpForm.js
+  const token = await userAPI.signUp(userData); // creates unique token for user, refer to users-api.js
   localStorage.setItem("token", token);
   return getUser();
 }
